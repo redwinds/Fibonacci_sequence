@@ -13,7 +13,13 @@ namespace Fibonacci_sequence
         static void Main(string[] args)
         {
             Console.WriteLine("计算菲波那契数列第30位的值是");
+            
+            System.Diagnostics.Stopwatch stopWatch = new System.Diagnostics.Stopwatch();
+            stopWatch.Start();
+            //Console.WriteLine(fib(30));
             solution1();
+            stopWatch.Stop();
+            Console.WriteLine(stopWatch.ElapsedMilliseconds);
             Console.ReadKey();
 
         }
@@ -37,9 +43,19 @@ namespace Fibonacci_sequence
                 }
 
             }
-            Console.WriteLine(string.Join(',', lstINt.ToArray()));
+            //Console.WriteLine(string.Join(',', lstINt.ToArray()));
             Console.WriteLine($"第30位结果是{lstINt[(30 - 1)]}");
             
+        }
+
+        private static int fib(int n)
+        {
+            if (n == 0 || n == 1)
+            {
+                return n;
+            }
+            //Console.WriteLine($"fib({n - 1}) + fib({n - 2})");
+            return fib(n - 1) + fib(n - 2);
         }
     }
 }
